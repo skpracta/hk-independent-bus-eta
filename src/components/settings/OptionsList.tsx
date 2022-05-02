@@ -84,7 +84,7 @@ const OptionsList = ({ goToSavedRouteOrder }: OptionsListProps) => {
         </ListItemAvatar>
         <ListItemText
           primary={t("路線篩選")}
-          secondary={t(isRouteFilter ? "只顯示現時路線" : "顯示所有路線")}
+          secondary={t(isRouteFilter ? "只顯示正在營運路線" : "顯示所有路線")}
         />
       </ListItem>
       <ListItem

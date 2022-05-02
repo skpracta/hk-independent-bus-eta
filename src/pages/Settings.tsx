@@ -251,7 +251,7 @@ const Settings = () => {
           </ListItemAvatar>
           <ListItemText
             primary={t("Source code")}
-            secondary={"GPL-3.0 License"}
+            secondary={t("GPL-3.0 License")}
             secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
         </ListItem>

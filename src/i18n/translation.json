@@ -57,7 +57,7 @@
       "安裝步驟": "Installation steps",
       "黑夜模式": "Dark mode",
       "路線篩選": "Route filtering",
-      "只顯示現時路線": "Show ONLY operating routes",
+      "只顯示正在營運路線": "Show ONLY operating routes",
       "顯示所有路線": "Show ALL routes",
       "省電模式": "Energy saving mode",
       "按鍵震動": "Vibration",
@@ -143,7 +143,8 @@
       "KMB first": "九巴優先",
       "CTB-NWFB first": "新巴城巴優先",
       "route-search-no-result": "沒有結果",
-      "Source code":"源代碼"
+      "Source code":"源代碼",
+      "GPL-3.0 License":"GPL-3.0 授權"
     }
   }
 }
