@@ -193,7 +193,7 @@ export const AppContextProvider = ({
       energyMode: !!JSON.parse(localStorage.getItem("energyMode")) || false,
       vibrateDuration: JSON.parse(localStorage.getItem("vibrateDuration")) ?? 1,
       isVisible: true,
-      analytics: JSON.parse(localStorage.getItem("analytics")) ?? true,
+      analytics: JSON.parse(localStorage.getItem("analytics")) ?? false,
     };
   };
   type State = AppState;

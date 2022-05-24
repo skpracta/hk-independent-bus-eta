@@ -62,7 +62,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-GHB6RFYM15"></script>-->
   <script>
-    const analytics = JSON.parse(localStorage.getItem("analytics")) ?? true;
+    const analytics = JSON.parse(localStorage.getItem("analytics")) ?? false;
     if (analytics) {
       window.dataLayer = window.dataLayer || [];
 
