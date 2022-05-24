@@ -23,7 +23,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import { SearchContextProvider } from "./SearchContext";
-import reportWebVitals, { sendToGoogleAnalytics } from "./reportWebVitals";
+//import reportWebVitals, { sendToGoogleAnalytics } from "./reportWebVitals";
 
 const RouteEta = loadable(() => import("./pages/RouteEta"));
 const RouteBoard = loadable(() => import("./pages/RouteBoard"));
