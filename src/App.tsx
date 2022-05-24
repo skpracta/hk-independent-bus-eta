@@ -55,7 +55,7 @@ const App = () => {
   // If you want to start measuring performance in your app, pass a function
   // to log results (for example: reportWebVitals(console.log))
   // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-  analytics && reportWebVitals(sendToGoogleAnalytics);
+  //analytics && reportWebVitals(sendToGoogleAnalytics);
 
   const theme = useMemo(() => {
     return createTheme(getThemeTokens(colorMode), [colorMode]);
