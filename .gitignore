@@ -32,3 +32,6 @@ yarn-error.log*
 .pnp.*
 yarnResult.txt
 .lh/
+.idea/
+
+/docker/.env

@@ -58,6 +58,10 @@ interface AppState {
    * check if window is on active in mobile
    */
   isVisible: boolean;
+  /**
+   * enable analytics or not
+   */
+  analytics: boolean;
 }
 
 interface AppContextValue extends AppState, DatabaseContextValue {
@@ -81,6 +85,7 @@ interface AppContextValue extends AppState, DatabaseContextValue {
   toggleColorMode: () => void;
   toggleEnergyMode: () => void;
   toggleVibrateDuration: () => void;
+  toggleAnalytics: () => void; // not
   workbox?: Workbox;
 }
 
@@ -188,6 +193,7 @@ export const AppContextProvider = ({
       energyMode: !!JSON.parse(localStorage.getItem("energyMode")) || false,
       vibrateDuration: JSON.parse(localStorage.getItem("vibrateDuration")) ?? 1,
       isVisible: true,
+      analytics: JSON.parse(localStorage.getItem("analytics")) ?? true,
     };
   };
   type State = AppState;
@@ -353,6 +359,17 @@ export const AppContextProvider = ({
     );
   }, []);
 
+  const toggleAnalytics = useCallback(() => {
+    setStateRaw(
+      produce((state: State) => {
+        const prev = state.analytics;
+        const analytics = !prev;
+        localStorage.setItem("analytics", JSON.stringify(analytics));
+        state.analytics = analytics;
+      })
+    );
+  }, []);
+
   const toggleVibrateDuration = useCallback(() => {
     setStateRaw(
       produce((state: State) => {
@@ -446,6 +463,7 @@ export const AppContextProvider = ({
   }, []);
 
   const resetUsageRecord = useCallback(() => {
+    localStorage.clear();
     setStateRaw(
       produce((state: State) => {
         state.hotRoute = {};
@@ -474,6 +492,7 @@ export const AppContextProvider = ({
       toggleColorMode,
       toggleEnergyMode,
       toggleVibrateDuration,
+      toggleAnalytics,
       workbox,
     };
   }, [
@@ -494,6 +513,7 @@ export const AppContextProvider = ({
     toggleColorMode,
     toggleEnergyMode,
     toggleVibrateDuration,
+    toggleAnalytics,
     workbox,
   ]);
   return (

@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useMemo } from "react";
 import AppContext from "../AppContext";
 import {
   Avatar,
   Divider,
   List,
   ListItem,
+  ListItemButton,
   ListItemAvatar,
   ListItemText,
   Paper,
@@ -25,6 +26,8 @@ import {
   Fingerprint as FingerprintIcon,
   Gavel as GavelIcon,
   InsertEmoticon as InsertEmoticonIcon,
+  SsidChart as SsidChartIcon,
+  BarChart as BarChartIcon,
 } from "@mui/icons-material";
 import { visuallyHidden } from "@mui/utils";
 import { useTranslation } from "react-i18next";
@@ -46,6 +49,8 @@ const Settings = () => {
     geoPermission,
     updateGeoPermission,
     vibrateDuration,
+    toggleAnalytics,
+    analytics,
   } = useContext(AppContext);
   const [updating, setUpdating] = useState(false);
   const [showGeoPermissionDenied, setShowGeoPermissionDenied] = useState(false);
@@ -54,7 +59,10 @@ const Settings = () => {
   const [isPersonalizeDialog, setIsPersonalizeDialog] = useState(false);
 
   const { t, i18n } = useTranslation();
-  const donationId = Math.floor(Math.random() * Donations.length);
+  const donationId = useMemo(
+    () => Math.floor(Math.random() * Donations.length),
+    []
+  );
 
   useEffect(() => {
     setSeoHeader({
@@ -73,8 +81,7 @@ const Settings = () => {
       )}`}</Typography>
       <List>
         {!checkAppInstalled() && (
-          <ListItem
-            button
+          <ListItemButton
             onClick={() => {
               vibrate(vibrateDuration);
               setTimeout(() => setIsOpenInstallDialog(true), 0);
@@ -88,12 +95,10 @@ const Settings = () => {
             <ListItemText
               primary={t("安裝")}
               secondary={t("安裝巴士預報 App 到裝置")}
-              secondaryTypographyProps={{ component: "h3", variant: "body2" }}
             />
-          </ListItem>
+          </ListItemButton>
         )}
-        <ListItem
-          button
+        <ListItemButton
           onClick={() => {
             vibrate(vibrateDuration);
             setUpdating(true);
@@ -118,12 +123,10 @@ const Settings = () => {
                 .slice(0, 20)
                 .replace(",", " ")
             }
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
+        </ListItemButton>
         <Divider />
-        <ListItem
-          button
+        <ListItemButton
           onClick={() => {
             vibrate(vibrateDuration);
             if (geoPermission === "granted") {
@@ -153,11 +156,9 @@ const Settings = () => {
                 ? "開啟中..."
                 : "關閉"
             )}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           onClick={() => {
             vibrate(vibrateDuration);
             setIsPersonalizeDialog(true);
@@ -168,11 +169,13 @@ const Settings = () => {
               <InsertEmoticonIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={t("個性化設定")} />
-        </ListItem>
+          <ListItemText
+            primary={t("個性化設定")}
+            secondary={t("日夜模式、時間格式、路線次序等")}
+          />
+        </ListItemButton>
         <Divider />
-        <ListItem
-          button
+        <ListItemButton
           onClick={() => {
             vibrate(vibrateDuration);
             triggerShare(
@@ -191,11 +194,9 @@ const Settings = () => {
           <ListItemText
             primary={t("複製應用程式鏈結")}
             secondary={t("經不同媒介分享給親友")}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           component="a"
           href={`https://t.me/hkbusapp`}
           target="_blank"
@@ -211,11 +212,38 @@ const Settings = () => {
           <ListItemText
             primary={t("Telegram 交流區")}
             secondary={t("歡迎意見及技術交流")}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton onClick={toggleAnalytics}>
+          <ListItemAvatar>
+            <Avatar>
+              <BarChartIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={"Google Analytics"}
+            secondary={t(analytics ? "開啟" : "關閉")}
+          />
+        </ListItemButton>
+        <ListItemButton
+          component="a"
+          href={`https://datastudio.google.com/embed/reporting/de590428-525e-4865-9d37-a955204b807a/page/psfZC`}
+          target="_blank"
+          onClick={() => {
+            vibrate(vibrateDuration);
+          }}
+        >
+          <ListItemAvatar>
+            <Avatar>
+              <SsidChartIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={t("統計數據彙整")}
+            secondary={t("整理從 Google 收集的數據")}
+          />
+        </ListItemButton>
+        <ListItemButton
           component="a"
           href={Donations[donationId].url[i18n.language]}
           target="_blank"
@@ -231,12 +259,10 @@ const Settings = () => {
           <ListItemText
             primary={t("捐款支持")}
             secondary={Donations[donationId].description[i18n.language]}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
+        </ListItemButton>
         <Divider />
-        <ListItem
-          button
+        <ListItemButton
           component={"a"}
           href={`https://github.com/hkbus/hk-independent-bus-eta`}
           target="_blank"
@@ -254,9 +280,8 @@ const Settings = () => {
             secondary={t("GPL-3.0 License")}
             secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           component={"a"}
           href={`https://www.flaticon.com/free-icon/double-decker_1032967`}
           target="_blank"
@@ -274,11 +299,9 @@ const Settings = () => {
           <ListItemText
             primary={t("圖標來源")}
             secondary={"Freepik from Flaticon"}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           component={"a"}
           href={`/${i18n.language}/privacy`}
           onClick={() => {
@@ -291,9 +314,8 @@ const Settings = () => {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={t("隱私權聲明")} />
-        </ListItem>
-        <ListItem
-          button
+        </ListItemButton>
+        <ListItemButton
           component={"a"}
           href={`/${i18n.language}/terms`}
           onClick={() => {
@@ -306,7 +328,7 @@ const Settings = () => {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={t("條款")} />
-        </ListItem>
+        </ListItemButton>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
@@ -316,7 +338,6 @@ const Settings = () => {
           <ListItemText
             primary={t("交通資料來源")}
             secondary={t("資料一線通") + "  https://data.gov.hk"}
-            secondaryTypographyProps={{ component: "h3", variant: "body2" }}
           />
         </ListItem>
       </List>
