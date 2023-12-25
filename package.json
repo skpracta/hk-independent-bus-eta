@@ -83,7 +83,7 @@
     "not dead",
     "not op_mini all"
   ],
-  "homepage": "https://hkbus.app/",
+  "homepage": "https://hkbus.skpracta.info/",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.11.4",
@@ -95,9 +95,9 @@
     "@types/node": "^18.0.0",
     "@types/proj4": "^2.5.2",
     "@types/puppeteer": "^5.4.6",
-    "@types/react": "18.0.14",
+    "@types/react": "^18.2.45",
     "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-dom": "^18.0.5",
+    "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-swipeable-views": "^0.13.1",
     "@types/react-swipeable-views-utils": "^0.13.3",

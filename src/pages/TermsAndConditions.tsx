@@ -1,5 +1,6 @@
 import React from "react";
-import { Paper, Link } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Link from "@mui/material/Link";
 
 const TermsAndConditions = () => {
   return (
