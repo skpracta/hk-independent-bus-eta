@@ -19,7 +19,6 @@ import { PaletteMode } from "@mui/material";
 import AppContext from "./AppContext";
 import Main from "./components/layout/Main";
 import { SearchContextProvider } from "./SearchContext";
-import reportWebVitals, { sendToGoogleAnalytics } from "./reportWebVitals";
 import { useTranslation } from "react-i18next";
 import RedirectPage from "./pages/RedirectPage";
 
@@ -41,11 +40,6 @@ const App = () => {
   const {
     i18n: { language },
   } = useTranslation();
-
-  // If you want to start measuring performance in your app, pass a function
-  // to log results (for example: reportWebVitals(console.log))
-  // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-  analytics && reportWebVitals(sendToGoogleAnalytics);
 
   const theme = useMemo(() => {
     return createTheme(getThemeTokens(colorMode, fontSize), [colorMode]);

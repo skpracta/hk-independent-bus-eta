@@ -119,7 +119,7 @@ const Settings = () => {
             component="a"
             href={`${
               process.env.REACT_APP_REPO_URL ||
-              "https://github.com/hkbus/hk-independent-bus-eta"
+              "https://github.com/skpracta/hk-independent-bus-eta"
             }${
               process.env.REACT_APP_COMMIT_HASH
                 ? `/commit/${process.env.REACT_APP_COMMIT_HASH}`
@@ -140,8 +140,8 @@ const Settings = () => {
                 process.env.REACT_APP_COMMIT_HASH
                   ? ` - ${process.env.REACT_APP_COMMIT_HASH}`
                   : ""
-              }`}
-              secondary={process.env.REACT_APP_COMMIT_MESSAGE || ""}
+              } + "skpracta.info"`}
+              secondary={process.env.REACT_APP_COMMIT_MESSAGE || "" + "skacta.info flavored"} 
             />
           </ListItemButton>
         )}
