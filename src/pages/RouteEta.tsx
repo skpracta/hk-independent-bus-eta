@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { setSeoHeader, toProperCase, getDistance } from "../utils";
 import type { WarnUpMessageData } from "../typing";
 import StrSim from "string-similarity";
-import { RouteList } from "hk-bus-eta";
+import { RouteList } from "hk-bus-eta-skpracta";
 const RouteMap = loadable(() => import("../components/route-eta/RouteMap"));
 
 const RouteEta = () => {

@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import SuccinctEtas from "./SuccinctEtas";
 import { getDistanceWithUnit, toProperCase } from "../../utils";
 import RouteNo from "../route-board/RouteNo";
-import { Eta, Location } from "hk-bus-eta";
+import { Eta, Location } from "hk-bus-eta-skpracta";
 import { ManageMode } from "../../data";
 import {
   DeleteOutline as DeleteIcon,

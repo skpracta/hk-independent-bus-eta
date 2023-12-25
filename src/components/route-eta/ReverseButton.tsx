@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useCallback } from "react";
 import { Button, Divider, SxProps, Theme } from "@mui/material";
 import { SyncAlt as SyncAltIcon } from "@mui/icons-material";
-import { RouteListEntry } from "hk-bus-eta";
+import { RouteListEntry } from "hk-bus-eta-skpracta";
 import { useNavigate } from "react-router-dom";
 import { vibrate, getDistance } from "../../utils";
 import { useTranslation } from "react-i18next";

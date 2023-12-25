@@ -1,4 +1,4 @@
-import { Company } from "hk-bus-eta";
+import { Company } from "hk-bus-eta-skpracta";
 import { BoardTabType } from "./typing";
 
 export const ETA_FORMAT_NEXT_TYPES: {

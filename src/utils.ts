@@ -1,5 +1,5 @@
-import type { Company, StopListEntry } from "hk-bus-eta";
-import type { Location as GeoLocation } from "hk-bus-eta";
+import type { Company, StopListEntry } from "hk-bus-eta-skpracta";
+import type { Location as GeoLocation } from "hk-bus-eta-skpracta";
 import type { TransportType, WarnUpMessageData } from "./typing";
 export const getDistance = (a: GeoLocation, b: GeoLocation) => {
   const R = 6371e3; // metres

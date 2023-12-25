@@ -1,5 +1,5 @@
-import { fetchEtaDb, fetchEtaDbMd5 } from "hk-bus-eta";
-import type { EtaDb } from "hk-bus-eta";
+import { fetchEtaDb, fetchEtaDbMd5 } from "hk-bus-eta-skpracta";
+import type { EtaDb } from "hk-bus-eta-skpracta";
 import { decompress as decompressJson } from "lzutf8-light";
 
 const isEtaDb = (input: unknown): input is EtaDb => {

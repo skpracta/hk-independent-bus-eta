@@ -3,7 +3,7 @@ import { Box, ListItemText, SxProps, Theme, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useEtas } from "../../hooks/useEtas";
 import AppContext from "../../AppContext";
-import { Eta } from "hk-bus-eta";
+import { Eta } from "hk-bus-eta-skpracta";
 import { Schedule as ScheduleIcon } from "@mui/icons-material";
 import LaptopIcon from "@mui/icons-material/Laptop";
 

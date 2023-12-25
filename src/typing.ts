@@ -1,4 +1,4 @@
-import type { StopListEntry } from "hk-bus-eta";
+import type { StopListEntry } from "hk-bus-eta-skpracta";
 
 export interface WarnUpMessageData {
   type: "WARN_UP_MAP_CACHE";

@@ -4,7 +4,7 @@ import debounce from "lodash.debounce";
 import AsyncSelect from "react-select/async";
 import { styled } from "@mui/material/styles";
 import proj4 from "proj4";
-import { StopList } from "hk-bus-eta";
+import { StopList } from "hk-bus-eta-skpracta";
 
 interface AddressInputProps {
   placeholder?: string;

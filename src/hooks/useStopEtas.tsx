@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { Eta, fetchEtas } from "hk-bus-eta";
+import { Eta, fetchEtas } from "hk-bus-eta-skpracta";
 import AppContext from "../AppContext";
 import { isHoliday, isRouteAvaliable } from "../timetable";
 

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import AddressInput from "../components/route-search/AddressInput";
 import SearchResult from "../components/route-search/SearchResult";
 import SearchMap from "../components/route-search/SearchMap";
-import { fetchEtas, Eta } from "hk-bus-eta";
+import { fetchEtas, Eta } from "hk-bus-eta-skpracta";
 import { setSeoHeader, getDistance, vibrate } from "../utils";
 import { LinearProgress } from "../components/Progress";
 

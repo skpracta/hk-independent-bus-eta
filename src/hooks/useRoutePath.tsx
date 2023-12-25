@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { StopListEntry } from "hk-bus-eta";
+import { StopListEntry } from "hk-bus-eta-skpracta";
 import { useEffect, useState } from "react";
 
 export const useRoutePath = (

@@ -12,7 +12,7 @@ import { Box, SxProps, Theme } from "@mui/material";
 import AppContext from "../../AppContext";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { checkPosition } from "../../utils";
-import { Location as GeoLocation } from "hk-bus-eta";
+import { Location as GeoLocation } from "hk-bus-eta-skpracta";
 import SelfCircle from "../map/SelfCircle";
 import CompassControl from "../map/CompassControl";
 

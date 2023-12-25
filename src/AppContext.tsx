@@ -12,7 +12,7 @@ import DbContext from "./DbContext";
 import type { DatabaseContextValue } from "./DbContext";
 import { Workbox } from "workbox-window";
 import { produce, freeze } from "immer";
-import type { Location as GeoLocation } from "hk-bus-eta";
+import type { Location as GeoLocation } from "hk-bus-eta-skpracta";
 import { ETA_FORMAT_NEXT_TYPES } from "./constants";
 import { useTranslation } from "react-i18next";
 import CollectionContext, { CollectionContextValue } from "./CollectionContext";

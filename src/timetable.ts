@@ -1,4 +1,4 @@
-import { EtaDb, Freq } from "hk-bus-eta";
+import { EtaDb, Freq } from "hk-bus-eta-skpracta";
 
 export const ServiceIds = {
   "31": "星期一至五",

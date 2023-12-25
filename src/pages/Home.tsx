@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import AppContext from "../AppContext";
 import { setSeoHeader } from "../utils";
 import throttle from "lodash.throttle";
-import { Location } from "hk-bus-eta";
+import { Location } from "hk-bus-eta-skpracta";
 import HomeTabbar, { isHomeTab } from "../components/home/HomeTabbar";
 import type { HomeTabType } from "../components/home/HomeTabbar";
 import BadWeatherCard from "../components/layout/BadWeatherCard";

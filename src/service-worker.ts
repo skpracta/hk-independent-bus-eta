@@ -19,9 +19,9 @@ import {
   StrategyHandler,
 } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
-import { fetchEtaDb } from "hk-bus-eta";
+import { fetchEtaDb } from "hk-bus-eta-skpracta";
 import { getTileListURL, isWarnUpMessageData } from "./utils";
-import type { StopListEntry } from "hk-bus-eta";
+import type { StopListEntry } from "hk-bus-eta-skpracta";
 
 declare var self: ServiceWorkerGlobalScope & typeof globalThis;
 clientsClaim();

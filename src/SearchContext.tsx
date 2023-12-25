@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Location as GeoLocation } from "hk-bus-eta";
+import { Location as GeoLocation } from "hk-bus-eta-skpracta";
 
 interface SearchContextProps {
   locations: {

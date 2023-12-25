@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 import { toProperCase } from "../../utils";
 import TimeReport from "./TimeReport";
 import ShareIcon from "@mui/icons-material/Share";
-import type { StopListEntry, RouteListEntry } from "hk-bus-eta";
+import type { StopListEntry, RouteListEntry } from "hk-bus-eta-skpracta";
 const SharingModal = loadable(() => import("./SharingModal"));
 
 interface StopAccordionsProps {

@@ -15,7 +15,7 @@ import {
   StopListEntry,
   StopList,
   EtaDb,
-} from "hk-bus-eta";
+} from "hk-bus-eta-skpracta";
 
 import AppContext from "../../AppContext";
 import { isHoliday, isRouteAvaliable } from "../../timetable";

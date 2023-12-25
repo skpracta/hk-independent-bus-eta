@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Eta, fetchEtas } from "hk-bus-eta";
+import { Eta, fetchEtas } from "hk-bus-eta-skpracta";
 import AppContext from "../AppContext";
 
 export const useEtas = (routeId, disable = false) => {

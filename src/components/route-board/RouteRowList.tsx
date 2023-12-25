@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { areEqual } from "react-window";
 import { vibrate } from "../../utils";
 import RouteRow from "./RouteRow";
-import { RouteListEntry } from "hk-bus-eta";
+import { RouteListEntry } from "hk-bus-eta-skpracta";
 import AppContext from "../../AppContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
