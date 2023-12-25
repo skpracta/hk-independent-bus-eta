@@ -141,7 +141,10 @@ const Settings = () => {
                   ? ` - ${process.env.REACT_APP_COMMIT_HASH}`
                   : ""
               } + "skpracta.info"`}
-              secondary={process.env.REACT_APP_COMMIT_MESSAGE || "" + "skacta.info flavored"} 
+              secondary={
+                process.env.REACT_APP_COMMIT_MESSAGE ||
+                "" + "skacta.info flavored"
+              }
             />
           </ListItemButton>
         )}
