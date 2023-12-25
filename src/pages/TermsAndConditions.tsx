@@ -11,7 +11,7 @@ const TermsAndConditions = () => {
         using the app. The app itself, and all the trademarks, copyright,
         database rights, and other intellectual property rights related to it,
         belong to HKBUS.APP. The app is only for personal, non-commercial, or
-        academic use. You may contact HKBUS.APP for commercial use licenses.
+        academic use.
       </p>{" "}
       <p>
         HKBUS.APP is committed to ensuring that the app is as useful and

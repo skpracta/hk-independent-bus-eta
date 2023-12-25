@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import AppContext from "../../AppContext";
 import { useEtas } from "../../hooks/useEtas";
 import { LinearProgress } from "../Progress";
-import { Eta, Terminal } from "hk-bus-eta";
+import { Eta, Terminal } from "hk-bus-eta-skpracta";
 import { PLATFORM } from "../../utils";
 
 interface TimeReportProps {

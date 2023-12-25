@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
       <strong>Privacy Policy</strong>{" "}
       <p>
         HKBUS.APP built the hkbus.app app as an Open Source app. This SERVICE is
-        provided by HKBUS.APP at no cost and is intended for use as is.
+        provided by HKBUS.APP at no cost and is intended for use AS-IS.
       </p>{" "}
       <p>
         This page is used to inform visitors regarding our policies with the

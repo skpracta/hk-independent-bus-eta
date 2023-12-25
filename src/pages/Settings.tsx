@@ -322,37 +322,6 @@ const Settings = () => {
           </ListItemButton>
         )}
         {!iOSRNWebView() && (
-          <ListItemButton onClick={toggleAnalytics}>
-            <ListItemAvatar>
-              <Avatar>
-                <BarChartIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={"Google Analytics"}
-              secondary={t(analytics ? "開啟" : "關閉")}
-            />
-          </ListItemButton>
-        )}
-        <ListItemButton
-          component="a"
-          href={`https://datastudio.google.com/embed/reporting/de590428-525e-4865-9d37-a955204b807a/page/psfZC`}
-          target="_blank"
-          onClick={() => {
-            vibrate(vibrateDuration);
-          }}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <SsidChartIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary={t("統計數據彙整")}
-            secondary={t("整理從 Google 收集的數據")}
-          />
-        </ListItemButton>
-        {!iOSRNWebView() && (
           <ListItemButton
             component="a"
             href={Donations[donationId].url[i18n.language]}
@@ -377,7 +346,7 @@ const Settings = () => {
           component={"a"}
           href={
             process.env.REACT_APP_REPO_URL ||
-            `https://github.com/hkbus/hk-independent-bus-eta`
+            `https://github.com/skpracta/hk-independent-bus-eta`
           }
           target="_blank"
           onClick={() => {
