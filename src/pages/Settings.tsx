@@ -58,7 +58,7 @@ const Settings = () => {
     toggleAutoDbRenew,
     geoPermission,
     updateGeoPermission,
-    vibrateDuration    
+    vibrateDuration,
   } = useContext(AppContext);
   const { debug, toggleDebug } = useContext(ReactNativeContext);
   const [updating, setUpdating] = useState(false);
@@ -138,8 +138,8 @@ const Settings = () => {
                   : ""
               } + "skpracta.info"`}
               secondary={
-                (process.env.REACT_APP_COMMIT_MESSAGE ||
-                "") + "skacta.info flavored"
+                (process.env.REACT_APP_COMMIT_MESSAGE || "") +
+                "skacta.info flavored"
               }
             />
           </ListItemButton>
