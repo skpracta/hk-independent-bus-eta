@@ -36,7 +36,7 @@ const DataImport = loadable(() => import("./pages/DataImport"));
 const DataExport = loadable(() => import("./pages/DataExport"));
 
 const App = () => {
-  const { analytics, colorMode, fontSize } = useContext(AppContext);
+  const { colorMode, fontSize } = useContext(AppContext);
   const {
     i18n: { language },
   } = useTranslation();

@@ -27,8 +27,6 @@ import {
   Fingerprint as FingerprintIcon,
   Gavel as GavelIcon,
   InsertEmoticon as InsertEmoticonIcon,
-  SsidChart as SsidChartIcon,
-  BarChart as BarChartIcon,
   Info as InfoIcon,
   SendToMobile as SendToMobileIcon,
   HelpOutline as HelpIcon,
@@ -60,9 +58,7 @@ const Settings = () => {
     toggleAutoDbRenew,
     geoPermission,
     updateGeoPermission,
-    vibrateDuration,
-    toggleAnalytics,
-    analytics,
+    vibrateDuration    
   } = useContext(AppContext);
   const { debug, toggleDebug } = useContext(ReactNativeContext);
   const [updating, setUpdating] = useState(false);
@@ -142,8 +138,8 @@ const Settings = () => {
                   : ""
               } + "skpracta.info"`}
               secondary={
-                process.env.REACT_APP_COMMIT_MESSAGE ||
-                "" + "skacta.info flavored"
+                (process.env.REACT_APP_COMMIT_MESSAGE ||
+                "") + "skacta.info flavored"
               }
             />
           </ListItemButton>
