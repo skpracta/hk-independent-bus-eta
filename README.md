@@ -1,4 +1,6 @@
-# 香港 - 獨立巴士預報 HK Bus ETA
+# 香港 - 獨立巴士預報 HK Bus ETA (Skpracta flavored)
+
+This project is a fork from HKBUS.APP (https://github.com/hkbus/hk-independent-bus-eta)
 
 [![React](https://badges.aleen42.com/src/react.svg)](http://reactjs.org/) 
 [![Test](https://github.com/hkbus/hk-independent-bus-eta/actions/workflows/node.js.yml/badge.svg)](https://hkbus.app)
@@ -82,8 +84,8 @@ Project owner [chunlaw](https://github.com/chunlaw) is the initiator of the whol
 
 [maruk0chan](https://github.com/maruk0chan)
 
-#skpracta Flavor
+## skpracta Flavor
 
-This version have changed the primary datasource to https://hkbus-data.skpracta.info which serves as a mirror to https://data.hkbus.app for Route and fare data
+This version have changed the primary datasource to https://hkbus-data.skpracta.info which serves as a mirror to https://data.hkbus.app for Route and fare data.
 
 Also this version have removed the Google analytics as it is not needed.
