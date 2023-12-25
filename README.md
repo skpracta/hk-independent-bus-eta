@@ -81,3 +81,9 @@ Project owner [chunlaw](https://github.com/chunlaw) is the initiator of the whol
 [thomassth](https://github.com/thomassth)
 
 [maruk0chan](https://github.com/maruk0chan)
+
+#skpracta Flavor
+
+This version have changed the primary datasource to https://hkbus-data.skpracta.info which serves as a mirror to https://data.hkbus.app for Route and fare data
+
+Also this version have removed the Google analytics as it is not needed.
