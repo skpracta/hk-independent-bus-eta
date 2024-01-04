@@ -6,8 +6,8 @@ const PrivacyPolicy = () => {
     <Paper sx={{ p: 2, flex: 1, overflow: "auto" }}>
       <strong>Privacy Policy</strong>{" "}
       <p>
-        HKBUS.APP built the hkbus.app app as an Open Source app. This SERVICE is
-        provided by HKBUS.APP at no cost and is intended for use AS-IS.
+        hkbus.skpracta.info built the hkbus.app app as an Open Source app. This SERVICE is
+        provided by hkbus.skpracta.info at no cost and is intended for use AS-IS.
       </p>{" "}
       <p>
         This page is used to inform visitors regarding our policies with the
@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
       </p>{" "}
       <p>
         The terms used in this Privacy Policy have the same meanings as in our
-        Terms and Conditions, which are accessible at hkbus.app unless otherwise
+        Terms and Conditions, which are accessible at hkbus.skpracta.info unless otherwise
         defined in this Privacy Policy.
       </p>{" "}
       <p>
@@ -41,7 +41,7 @@ const PrivacyPolicy = () => {
           used to identify you. You can disable the collection of information at
           anytime in the settings.
           <br />
-          This does not affect users using the hkbus.app ios app, in which the
+          This does not affect users using the hkbus.skpracta.info ios app, in which the
           analytics are disabled.
         </p>{" "}
         <p>
@@ -167,7 +167,7 @@ const PrivacyPolicy = () => {
       </p>{" "}
       <p>
         If you have any questions or suggestions about our Privacy Policy, do
-        not hesitate to contact us at no-reply@hkbus.app.
+        not hesitate to contact us at hkbus.privacy@skpracta.info.
       </p>
     </Paper>
   );

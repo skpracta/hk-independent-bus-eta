@@ -15,21 +15,21 @@ const TermsAndConditions = () => {
         academic use.
       </p>{" "}
       <p>
-        HKBUS.APP is committed to ensuring that the app is as useful and
+        hkbus.skpracta.info is committed to ensuring that the app is as useful and
         efficient as possible. For that reason, we reserve the right to make
         changes to the app or to charge for its services, at any time and for
         any reason. We will never charge you for the app or its services without
         making it very clear to you exactly what you’re paying for.
       </p>{" "}
       <p>
-        The hkbus.app app stores and processes personal data that you have
+        The hkbus.skpracta.info app stores and processes personal data that you have
         provided to us, to provide our Service. It’s your responsibility to keep
         your phone and access to the app secure. We therefore recommend that you
         do not jailbreak or root your phone, which is the process of removing
         software restrictions and limitations imposed by the official operating
         system of your device. It could make your phone vulnerable to
         malware/viruses/malicious programs, compromise your phone’s security
-        features and it could mean that the hkbus.app app won’t work properly or
+        features and it could mean that the hkbus.skpracta.info app won’t work properly or
         at all.
       </p>{" "}
       <div>
@@ -65,10 +65,10 @@ const TermsAndConditions = () => {
         </ul>
       </div>{" "}
       <p>
-        You should be aware that there are certain things that HKBUS.APP will
+        You should be aware that there are certain things that hkbus.skpracta.info will
         not take responsibility for. Certain functions of the app will require
         the app to have an active internet connection. The connection can be
-        Wi-Fi or provided by your mobile network provider, but HKBUS.APP cannot
+        Wi-Fi or provided by your mobile network provider, but hkbus.skpracta.info cannot
         take responsibility for the app not working at full functionality if you
         don’t have access to Wi-Fi, and you don’t have any of your data
         allowance left.
@@ -88,17 +88,17 @@ const TermsAndConditions = () => {
         using the app.
       </p>{" "}
       <p>
-        Along the same lines, HKBUS.APP cannot always take responsibility for
+        Along the same lines, hkbus.skpracta.info cannot always take responsibility for
         the way you use the app i.e. You need to make sure that your device
         stays charged - if it runs out of battery and you can’t turn it on to
-        avail the Service, HKBUS.APP cannot accept responsibility.
+        avail the Service, hkbus.skpracta.info cannot accept responsibility.
       </p>{" "}
       <p>
-        With respect to HKBUS.APP’s responsibility for your use of the app, when
+        With respect to hkbus.skpracta.info’s responsibility for your use of the app, when
         you’re using the app, it’s important to bear in mind that although we
         endeavor to ensure that it is updated and correct at all times, we do
         rely on third parties to provide information to us so that we can make
-        it available to you. HKBUS.APP accepts no liability for any loss, direct
+        it available to you. hkbus.skpracta.info accepts no liability for any loss, direct
         or indirect, you experience as a result of relying wholly on this
         functionality of the app.
       </p>{" "}
@@ -107,7 +107,7 @@ const TermsAndConditions = () => {
         available on Android &amp; iOS - the requirements for the both
         systems(and for any additional systems we decide to extend the
         availability of the app to) may change, and you’ll need to download the
-        updates if you want to keep using the app. HKBUS.APP does not promise
+        updates if you want to keep using the app. hkbus.skpracta.info does not promise
         that it will always update the app so that it is relevant to you and/or
         works with the Android &amp; iOS version that you have installed on your
         device. However, you promise to always accept updates to the application
@@ -131,7 +131,7 @@ const TermsAndConditions = () => {
       </p>{" "}
       <p>
         If you have any questions or suggestions about our Terms and Conditions,
-        do not hesitate to contact us at no-reply@hkbus.app.
+        do not hesitate to contact us at hkbus.enquiry@skpracta.info.
       </p>
     </Paper>
   );
