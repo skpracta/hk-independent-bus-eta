@@ -185,7 +185,8 @@ const isCompassPermission = (
 };
 
 export const isBusSortOrder = (input: unknown): input is BusSortOrder => {
-  return input === "KMB first" || input === "CTB first";
+  return input === "KMB first" || input === "CTB first" || input == "NLB first" ||
+  input == "MTR first" || input == "MTR East first" || input == "MTR West first";
 };
 
 const isNumPadOrder = (input: unknown): input is NumPadOrder => {
@@ -459,7 +460,12 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       produce((state: State) => {
         const prevOrder = state.busSortOrder;
         const busSortOrder =
-          prevOrder === "KMB first" ? "CTB first" : "KMB first";
+          prevOrder === "KMB first" ? "CTB first" : 
+          prevOrder === "CTB first" ? "NLB first" :
+          prevOrder === "NLB first" ? "MTR first" :
+          prevOrder === "MTR first" ? "MTR East first" :
+          prevOrder === "MTR East first" ? "MTR West first" :
+          prevOrder === "MTR West first" ? "KMB first" : "MTR West first";
         state.busSortOrder = busSortOrder;
       })
     );

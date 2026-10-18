@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useMemo, useCallback } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
 import AppContext from "../context/AppContext";
 import {
   Avatar,
@@ -18,17 +18,14 @@ import {
   GetApp as GetAppIcon,
   Build as BuildIcon,
   LocationOn as LocationOnIcon,
-  LocationOff as LocationOffIcon,
-  MonetizationOn as MonetizationOnIcon,
+  LocationOff as LocationOffIcon,  
   DataUsage as DataUsageIcon,
   GitHub as GitHubIcon,
   Share as ShareIcon,
   Telegram as TelegramIcon,
   Fingerprint as FingerprintIcon,
   Gavel as GavelIcon,
-  InsertEmoticon as InsertEmoticonIcon,
-  SsidChart as SsidChartIcon,
-  BarChart as BarChartIcon,
+  InsertEmoticon as InsertEmoticonIcon,  
   Info as InfoIcon,
   SendToMobile as SendToMobileIcon,
   HelpOutline as HelpIcon,
@@ -36,7 +33,6 @@ import {
   Sync as SyncIcon,
   SyncDisabled as SyncDisabledIcon,
   SecurityUpdate as SecurityUpdateIcon,
-  Watch as WatchIcon,
   Map as MapIcon,
 } from "@mui/icons-material";
 import { visuallyHidden } from "@mui/utils";
@@ -49,7 +45,6 @@ import {
   iOSRNWebView,
 } from "../utils";
 import InstallDialog from "../components/settings/InstallDialog";
-import Donations from "../Donations";
 import PersonalizeDialog from "../components/settings/PersonalizeDialog";
 import { useNavigate } from "react-router-dom";
 import ReactNativeContext from "../context/ReactNativeContext";
@@ -67,13 +62,10 @@ const Settings = () => {
   const {
     geoPermission,
     updateGeoPermission,
-    vibrateDuration,
-    toggleAnalytics,
-    analytics,
+    vibrateDuration,    
     openUrl,
   } = useContext(AppContext);
   const { debug, toggleDebug } = useContext(ReactNativeContext);
-  const { os } = useContext(ReactNativeContext);
   const [updating, setUpdating] = useState(false);
   const [showGeoPermissionDenied, setShowGeoPermissionDenied] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -81,14 +73,8 @@ const Settings = () => {
   const [isPersonalizeDialog, setIsPersonalizeDialog] = useState(false);
 
   const { t } = useTranslation();
+  const versionSuffix = " (skpracta.info flavored)";
   const language = useLanguage();
-  const donationId = useMemo(
-    () => Math.floor(Math.random() * Donations.length),
-    []
-  );
-  const isApple =
-    os === "ios" || /iPad|iPhone|iPod|Mac/.test(navigator.userAgent);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -149,7 +135,7 @@ const Settings = () => {
             </ListItemAvatar>
             <ListItemText
               primary={`${t("版本")}: ${
-                import.meta.env.VITE_VERSION || "unknown"
+                import.meta.env.VITE_VERSION + versionSuffix || "unknown"
               }${
                 import.meta.env.VITE_COMMIT_HASH
                   ? ` - ${import.meta.env.VITE_COMMIT_HASH}`
@@ -302,31 +288,6 @@ const Settings = () => {
             secondary={t("經不同媒介分享給親友")}
           />
         </ListItemButton>
-        {
-          // @ts-expect-error harmonyBridger exists in Harmony OS only
-          typeof harmonyBridger === "undefined" && (
-            <ListItemButton
-              onClick={() => {
-                vibrate(vibrateDuration);
-                openUrl(
-                  isApple
-                    ? `https://watch.hkbus.app/`
-                    : `https://wear.hkbus.app/`
-                );
-              }}
-            >
-              <ListItemAvatar>
-                <Avatar>
-                  <WatchIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={t("智能手錶應用程式")}
-                secondary={t("支援 WearOS 及 WatchOS 平台")}
-              />
-            </ListItemButton>
-          )
-        }
         {!iOSRNWebView() ? (
           <ListItemButton
             onClick={() => {
@@ -362,58 +323,6 @@ const Settings = () => {
             />
           </ListItemButton>
         )}
-        {!iOSRNWebView() && (
-          <ListItemButton onClick={toggleAnalytics}>
-            <ListItemAvatar>
-              <Avatar>
-                <BarChartIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={"Google Analytics"}
-              secondary={t(analytics ? "開啟" : "關閉")}
-            />
-          </ListItemButton>
-        )}
-        <ListItemButton
-          onClick={() => {
-            vibrate(vibrateDuration);
-            openUrl(
-              "https://datastudio.google.com/embed/reporting/de590428-525e-4865-9d37-a955204b807a/page/psfZC"
-            );
-          }}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <SsidChartIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary={t("統計數據彙整")}
-            secondary={t("整理從 Google 收集的數據")}
-          />
-        </ListItemButton>
-        {
-          // @ts-expect-error harmonyBridger exists in Harmony OS only
-          !iOSRNWebView() && typeof harmonyBridger === "undefined" && (
-            <ListItemButton
-              onClick={() => {
-                vibrate(vibrateDuration);
-                openUrl(Donations[donationId].url[language]);
-              }}
-            >
-              <ListItemAvatar>
-                <Avatar>
-                  <MonetizationOnIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={t("捐款支持")}
-                secondary={Donations[donationId].description[language]}
-              />
-            </ListItemButton>
-          )
-        }
         <Divider />
         <ListItemButton
           onClick={() => {
