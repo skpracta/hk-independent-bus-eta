@@ -5,29 +5,39 @@ docker-build:
   services:
     - docker:dind
   before_script:
-    - apk add yarn nodejs-current
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - apk add yarn nodejs-current curl
+    - echo "$CI_REGISTRY_PASSWORD" | docker login "$CI_REGISTRY" --username "$CI_REGISTRY_USER" --password-stdin
+    - echo "$DOCKERHUB_TOKEN" | docker login docker.io --username "$DOCKERHUB_USERNAME" --password-stdin
+    - curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
   script:
     - |
-      if [ "$PRERENDER" = "true" ]; then yarn docker:build-noenv \
-      --build-arg REACT_APP_REPO_URL="https://${CI_SERVER_HOST}/${CI_PROJECT_PATH}" \
-      --build-arg REACT_APP_COMMIT_HASH="$CI_COMMIT_SHORT_SHA" \
-      --build-arg REACT_APP_COMMIT_MESSAGE="$CI_COMMIT_MESSAGE" \
-      --build-arg REACT_APP_VERSION="$(node -e 'console.log(require("package.json").version)')" \
-      --build-arg PRERENDER=true \
-      -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:full"; docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:full"; exit 0; fi;
+      if [ "$PRERENDER" = "true" ]; then
+        yarn docker:build-noenv \
+          --build-arg REACT_APP_REPO_URL="https://${CI_SERVER_HOST}/${CI_PROJECT_PATH}" \
+          --build-arg REACT_APP_COMMIT_HASH="$CI_COMMIT_SHORT_SHA" \
+          --build-arg REACT_APP_COMMIT_MESSAGE="$CI_COMMIT_MESSAGE" \
+          --build-arg REACT_APP_VERSION="$(node -e 'console.log(require("package.json").version)')" \
+          --build-arg PRERENDER=true \
+          -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:full"
+        docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:full"
+        digest="$(docker inspect --format='{{index .RepoDigests 0}}' "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:full" | cut -d@ -f2)"
+        docker scout cves "$CI_REGISTRY_IMAGE@$digest" --exit-code --only-severity critical,high
+        exit 0
+      fi
     - |
-      yarn docker:build-noenv  \
-      --build-arg REACT_APP_REPO_URL="https://${CI_SERVER_HOST}/${CI_PROJECT_PATH}" \
-      --build-arg REACT_APP_COMMIT_HASH="$CI_COMMIT_SHORT_SHA" \
-      --build-arg REACT_APP_COMMIT_MESSAGE="$CI_COMMIT_MESSAGE" \
-      --build-arg REACT_APP_VERSION="$(node -e 'console.log(require("package.json").version)')" \
-      -t "$CI_REGISTRY_IMAGE:latest" \
-      -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:latest" \
-      -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHORT_SHA";
+      yarn docker:build-noenv \
+        --build-arg REACT_APP_REPO_URL="https://${CI_SERVER_HOST}/${CI_PROJECT_PATH}" \
+        --build-arg REACT_APP_COMMIT_HASH="$CI_COMMIT_SHORT_SHA" \
+        --build-arg REACT_APP_COMMIT_MESSAGE="$CI_COMMIT_MESSAGE" \
+        --build-arg REACT_APP_VERSION="$(node -e 'console.log(require("package.json").version)')" \
+        -t "$CI_REGISTRY_IMAGE:latest" \
+        -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:latest" \
+        -t "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHORT_SHA"
     - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:latest"
     - docker push "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHORT_SHA"
-    - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker push "$CI_REGISTRY_IMAGE:latest"; fi;
+    - if [ "$CI_COMMIT_BRANCH" = "master" ]; then docker push "$CI_REGISTRY_IMAGE:latest"; fi
+    - digest="$(docker inspect --format='{{index .RepoDigests 0}}' "$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHORT_SHA" | cut -d@ -f2)"
+    - docker scout cves "$CI_REGISTRY_IMAGE@$digest" --exit-code --only-severity critical,high
   # Run this job in a branch where a Dockerfile exists
   rules:
     - if: $CI_COMMIT_BRANCH && $PULL != "true"
