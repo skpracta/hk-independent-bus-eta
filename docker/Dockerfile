@@ -7,11 +7,16 @@ WORKDIR /app
 ENV CI=true \
     PUPPETEER_SKIP_DOWNLOAD=true
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY package.json yarn.lock ./
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn \
     yarn install --frozen-lockfile --non-interactive
 
 COPY . .
+COPY --from=git . /app/.git/
 RUN yarn build
 
 FROM nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 AS runtime
