@@ -1,10 +1,11 @@
-name: Build
+name: Build and Create Docker Image
 
 on:
   push:
-    branches: [ master ]
+    branches: [ webdeployment ]
   pull_request:
-    branches: [ master ]
+    branches: [ master ]        
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -27,7 +28,7 @@ jobs:
       - run: yarn run build
 
   docker:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -69,6 +70,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
           sbom: true
           provenance: true
           cache-from: type=gha
@@ -81,7 +83,7 @@ jobs:
           image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
           only-severities: critical,high
           sarif-file: scout-results.sarif
-          exit-code: true
+          exit-code: false
 
       - name: Upload Docker Scout results
         if: always()

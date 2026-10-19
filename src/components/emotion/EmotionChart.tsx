@@ -1,11 +1,16 @@
 import { Box, SxProps, Theme, Typography } from "@mui/material";
-import { useContext, useMemo } from "react";
+import { lazy, Suspense, useContext, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import Plotly from "plotly.js-basic-dist";
-import createPlotlyComponent from "react-plotly.js/factory";
 import EmotionContext, { CheckInOptions } from "../../context/EmotionContext";
 
-const Plot = createPlotlyComponent(Plotly);
+const Plot = lazy(async () => {
+  const [{ default: Plotly }, { default: createPlotlyComponent }] =
+    await Promise.all([
+      import("plotly.js-basic-dist"),
+      import("react-plotly.js/factory"),
+    ]);
+  return { default: createPlotlyComponent(Plotly) };
+});
 
 const EmotionChart = () => {
   const { t } = useTranslation();
@@ -44,111 +49,115 @@ const EmotionChart = () => {
   return (
     <Box sx={rootSx}>
       <Typography variant="body1">{t("In the past 4 weeks, ...")}</Typography>
-      <Plot
-        data={[
-          {
-            values: countData.happiness,
-            labels: CheckInOptions.happiness,
-            type: "pie",
-            hoverinfo: "label+percent",
-            hole: 0.4,
-            showlegend: false,
-            textposition: "inside",
-            domain: { column: 1 },
-          },
-        ]}
-        layout={{
-          width: 380,
-          height: 340,
-          title: t("How happy were you?"),
-          annotations: [
+      <Suspense fallback={<Typography>{t("Loading...")}</Typography>}>
+        <Plot
+          data={[
             {
-              text: CheckInOptions.happiness[
-                countData.happiness.indexOf(Math.max(...countData.happiness))
-              ],
-              showarrow: false,
-              font: {
-                size: 40,
-              },
-              x: 0.5,
-              y: 0.5,
+              values: countData.happiness,
+              labels: CheckInOptions.happiness,
+              type: "pie",
+              hoverinfo: "label+percent",
+              hole: 0.4,
+              showlegend: false,
+              textposition: "inside",
+              domain: { column: 1 },
             },
-          ],
-        }}
-        config={{ displayModeBar: false }}
-      />
-      <Plot
-        data={[
-          {
-            values: countData.moodScene,
-            labels: CheckInOptions.moodScene.map((v) => t(v)),
-            type: "pie",
-            hoverinfo: "label+percent",
-            hole: 0.4,
-            showlegend: false,
-            textposition: "inside",
-            domain: { column: 1 },
-          },
-        ]}
-        layout={{
-          width: 380,
-          height: 340,
-          title: t("What environment made you feel most profound?"),
-          annotations: [
+          ]}
+          layout={{
+            width: 380,
+            height: 340,
+            title: t("How happy were you?"),
+            annotations: [
+              {
+                text: CheckInOptions.happiness[
+                  countData.happiness.indexOf(Math.max(...countData.happiness))
+                ],
+                showarrow: false,
+                font: {
+                  size: 40,
+                },
+                x: 0.5,
+                y: 0.5,
+              },
+            ],
+          }}
+          config={{ displayModeBar: false }}
+        />
+        <Plot
+          data={[
             {
-              text: t(
-                CheckInOptions.moodScene[
-                  countData.moodScene.indexOf(Math.max(...countData.moodScene))
-                ]
-              ),
-              showarrow: false,
-              font: {
-                size: 20,
-              },
-              x: 0.5,
-              y: 0.5,
+              values: countData.moodScene,
+              labels: CheckInOptions.moodScene.map((v) => t(v)),
+              type: "pie",
+              hoverinfo: "label+percent",
+              hole: 0.4,
+              showlegend: false,
+              textposition: "inside",
+              domain: { column: 1 },
             },
-          ],
-        }}
-        config={{ displayModeBar: false }}
-      />
-      <Plot
-        data={[
-          {
-            values: countData.gratitudeObj,
-            labels: CheckInOptions.gratitudeObj.map((v) => t(v)),
-            type: "pie",
-            hoverinfo: "label+percent",
-            hole: 0.4,
-            showlegend: false,
-            textposition: "inside",
-            domain: { column: 1 },
-          },
-        ]}
-        layout={{
-          width: 380,
-          height: 340,
-          title: t("What are you most grateful for?"),
-          annotations: [
+          ]}
+          layout={{
+            width: 380,
+            height: 340,
+            title: t("What environment made you feel most profound?"),
+            annotations: [
+              {
+                text: t(
+                  CheckInOptions.moodScene[
+                    countData.moodScene.indexOf(
+                      Math.max(...countData.moodScene)
+                    )
+                  ]
+                ),
+                showarrow: false,
+                font: {
+                  size: 20,
+                },
+                x: 0.5,
+                y: 0.5,
+              },
+            ],
+          }}
+          config={{ displayModeBar: false }}
+        />
+        <Plot
+          data={[
             {
-              text: t(
-                CheckInOptions.gratitudeObj[
-                  countData.gratitudeObj.indexOf(
-                    Math.max(...countData.gratitudeObj)
-                  )
-                ]
-              ),
-              showarrow: false,
-              font: {
-                size: 20,
-              },
-              x: 0.5,
-              y: 0.5,
+              values: countData.gratitudeObj,
+              labels: CheckInOptions.gratitudeObj.map((v) => t(v)),
+              type: "pie",
+              hoverinfo: "label+percent",
+              hole: 0.4,
+              showlegend: false,
+              textposition: "inside",
+              domain: { column: 1 },
             },
-          ],
-        }}
-        config={{ displayModeBar: false }}
-      />
+          ]}
+          layout={{
+            width: 380,
+            height: 340,
+            title: t("What are you most grateful for?"),
+            annotations: [
+              {
+                text: t(
+                  CheckInOptions.gratitudeObj[
+                    countData.gratitudeObj.indexOf(
+                      Math.max(...countData.gratitudeObj)
+                    )
+                  ]
+                ),
+                showarrow: false,
+                font: {
+                  size: 20,
+                },
+                x: 0.5,
+                y: 0.5,
+              },
+            ],
+          }}
+          config={{ displayModeBar: false }}
+        />
+      </Suspense>
       <Typography variant="h6">
         {t("There are also ")}
         {countData.gratitudeCnt}

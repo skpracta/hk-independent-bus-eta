@@ -61,21 +61,11 @@
     -->
     <link rel="manifest" href="/manifest.json" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHB6RFYM15"></script>
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-GHB6RFYM15"></script>-->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
-      }
-
-      const analytics =
-        window.iOSRNWebView && !window.iOSTracking
-          ? false
-          : JSON.parse(localStorage.getItem("analytics")) ?? true;
-
-      if (analytics) {
-        gtag("js", new Date());
-        gtag("config", "G-GHB6RFYM15");
       }
     </script>
 

@@ -27,7 +27,22 @@ export default defineConfig(({mode}: ConfigEnv) => {
       // strictPort: true,
     },
     build: {
-      outDir: "./build"
+      outDir: "./build",
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules/maplibre-gl") || id.includes("node_modules/react-map-gl")) {
+              return "maplibre";
+            }
+            if (id.includes("node_modules/plotly.js-basic-dist") || id.includes("node_modules/react-plotly.js")) {
+              return "plotly";
+            }
+            if (id.includes("node_modules/")) {
+              return "vendor";
+            }
+          }
+        }
+      }
     }
   }
 });
@@ -82,7 +97,7 @@ const getPwaOptions = (env: Record<string, string>): Partial<VitePWAOptions> => 
           ),
           handler: "CacheFirst",
           options: {
-            cacheName: "app-runtime",
+            cacheName: "app-runtime-v2",
             cacheableResponse: {
               statuses: [0, 200],
             }

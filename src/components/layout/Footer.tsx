@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import {
-  Badge,
+  // Badge,
   BottomNavigation,
   BottomNavigationAction,
   SxProps,
@@ -11,12 +11,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import FlagCircleIcon from "@mui/icons-material/FlagCircle";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+//import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import AppContext from "../../context/AppContext";
 import { vibrate } from "../../utils";
-import EmotionContext from "../../context/EmotionContext";
+//import EmotionContext from "../../context/EmotionContext";
 import useLanguage from "../../hooks/useTranslation";
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
   const language = useLanguage();
   const location = useLocation();
   const { vibrateDuration } = useContext(AppContext);
-  const { isRemind } = useContext(EmotionContext);
+  //  const { isRemind } = useContext(EmotionContext);
 
   const navigate = useNavigate();
   const handleClick = useCallback(
@@ -87,27 +87,9 @@ const Footer = () => {
           value={`/${language}/notice`}
           icon={<NewspaperIcon />}
         />
-        <BottomNavigationAction
-          label={t("Heart")}
-          component={Link}
-          to={`/${language}/emotion`}
-          onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-            handleClick(`/${language}/emotion`, e)
-          }
-          value={`/${language}/emotion`}
-          icon={
-            <Badge
-              invisible={!isRemind || location.pathname.endsWith("/emotion")}
-              color="error"
-              variant="dot"
-            >
-              <FavoriteIcon />
-            </Badge>
-          }
-        />
       </BottomNavigation>
     ),
-    [location.pathname, language, t, isRemind, handleClick]
+    [location.pathname, language, t, handleClick]
   );
 };
 

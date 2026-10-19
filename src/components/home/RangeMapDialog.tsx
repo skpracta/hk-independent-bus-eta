@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import {
   Box,
   Dialog,
@@ -8,13 +9,14 @@ import {
   SxProps,
   Theme,
 } from "@mui/material";
-import RangeMap from "../map/maplibre/RangeMap";
 import { useTranslation } from "react-i18next";
 import { useCallback, useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
 import { Location } from "hk-bus-eta";
 import { Close as CloseIcon } from "@mui/icons-material";
 import { getDistanceWithUnit } from "../../utils";
+
+const RangeMap = React.lazy(() => import("../map/maplibre/RangeMap"));
 
 interface RangeMapDialogProps {
   open: boolean;
@@ -79,11 +81,13 @@ const RangeMapDialog = ({ open, onClose }: RangeMapDialogProps) => {
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <RangeMap
-          range={state.searchRange}
-          value={state.geolocation}
-          onChange={updateGeolocation}
-        />
+        <Suspense fallback={<Box sx={{ flex: 1 }} />}>
+          <RangeMap
+            range={state.searchRange}
+            value={state.geolocation}
+            onChange={updateGeolocation}
+          />
+        </Suspense>
         <Box sx={{ px: 4, py: 5 }}>
           <Slider
             sx={sliderSx}
