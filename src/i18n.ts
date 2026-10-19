@@ -4,7 +4,12 @@ import resources from "./i18n/translation";
 
 const getSavedLang = (): "zh" | "en" | "zs" | "jp" | undefined => {
   const savedLang = localStorage.getItem("lang");
-  if ("zh" === savedLang || "en" === savedLang || "zs" === savedLang || "jp" === savedLang) {
+  if (
+    "zh" === savedLang ||
+    "en" === savedLang ||
+    "zs" === savedLang ||
+    "jp" === savedLang
+  ) {
     return savedLang;
   }
   return undefined;
@@ -12,7 +17,7 @@ const getSavedLang = (): "zh" | "en" | "zs" | "jp" | undefined => {
 
 const DEFAULT_LANG =
   getSavedLang() ??
-  (window.location.pathname.slice(1, 3) === "en" ? "en" : "zh" );
+  (window.location.pathname.slice(1, 3) === "en" ? "en" : "zh");
 
 i18n.use(initReactI18next).init({
   resources,

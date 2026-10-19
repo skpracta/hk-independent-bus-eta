@@ -263,9 +263,11 @@ const resources = {
       "route-search-no-result": "沒有結果",
       "suggest-update-database": "可嘗試到設定，更新路線資料庫",
       "no-recent-search": "沒有記錄",
-      "tap-here-to-search-all-routes":"<TapHereLink>按此</TapHereLink>以搜尋「全部」路綫",
+      "tap-here-to-search-all-routes":
+        "<TapHereLink>按此</TapHereLink>以搜尋「全部」路綫",
       "Source code": "原始碼",
-      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.": "我們希望設置 cookie，了解你如何使用 hkbus.skpracta.info 來幫助我們改進。",
+      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.":
+        "我們希望設置 cookie，了解你如何使用 hkbus.skpracta.info 來幫助我們改進。",
       Accept: "好的",
       Reject: "不要",
       Collections: "收藏",
@@ -329,10 +331,10 @@ const resources = {
       Review: "回顧",
     },
   },
-    zs: {
+  zs: {
     translation: {
       "bad-weather-text":
-      "公共交通及班次或受恶劣天气影响，以下资料未必反映最新状况。按此查看官方公布。",
+        "公共交通及班次或受恶劣天气影响，以下资料未必反映最新状况。按此查看官方公布。",
       "bad-weather-link": "https://www.td.gov.hk/tc/special_news/spnews.htm",
       "db-renew-text": "路线资料已作修订，请按此处更新",
       kmb: "九巴",
@@ -345,20 +347,20 @@ const resources = {
       fortuneferry: "富裕小轮",
       Dashboard: "仪表板",
       "home-page-description":
-      "无广告手机应用程式查阅巴士线、车站、预计到达时间，路线尽包九龙巴士(九巴)、龙运巴士、城巴、新大屿山巴士、专线小巴 - 巴士到站预报 App",
+        "无广告手机应用程式查阅巴士线、车站、预计到达时间，路线尽包九龙巴士(九巴)、龙运巴士、城巴、新大屿山巴士、专线小巴 - 巴士到站预报 App",
       "route-board-page-description":
-      "透过简洁清晣的搜寻介面，轻松查找九巴、龙运、城巴、新大屿山巴士、专线小巴合共超过 1800 条巴士路线，8800 个车站，路线覆盖港岛、九龙、新界、大屿山 - 巴士到站预报 App",
+        "透过简洁清晣的搜寻介面，轻松查找九巴、龙运、城巴、新大屿山巴士、专线小巴合共超过 1800 条巴士路线，8800 个车站，路线覆盖港岛、九龙、新界、大屿山 - 巴士到站预报 App",
       "setting-page-description":
-      "重置巴士路线资料，删除使用记录，查看原始码，加入 Telegram 交流群组 - 巴士到站预报 App",
+        "重置巴士路线资料，删除使用记录，查看原始码，加入 Telegram 交流群组 - 巴士到站预报 App",
       "route-search-page-description":
-      "点对点搜寻可行巴士线，合理步距下，横夸九巴、龙运、城巴、新大屿山巴士、专线小巴的巴士线 - 巴士到站预报 App",
+        "点对点搜寻可行巴士线，合理步距下，横夸九巴、龙运、城巴、新大屿山巴士、专线小巴的巴士线 - 巴士到站预报 App",
       "Route Search header": "点对点巴士路线搜寻",
       "Route Search description": "搜寻由起点到终点的路线",
       "Route Search constraint": "条件如下：",
       "Route Search caption 1": "最多转乘一班车",
       "Route Search caption 2": "起点终点和车站之间的最大步行距离 500m",
       "Route Search caption 3":
-      "App 亦会确认路线头站有即将出发的车，以减少过量的搜寻结果",
+        "App 亦会确认路线头站有即将出发的车，以减少过量的搜寻结果",
       recent: "最近搜寻",
       all: "全部",
       bus: "巴士",
@@ -375,9 +377,11 @@ const resources = {
       "route-search-no-result": "没有结果",
       "suggest-update-database": "可尝试到设定，更新路线资料库",
       "no-recent-search": "没有记录",
-      "tap-here-to-search-all-routes":"<TapHereLink>按此</TapHereLink>以搜寻「全部」路线",
+      "tap-here-to-search-all-routes":
+        "<TapHereLink>按此</TapHereLink>以搜寻「全部」路线",
       "Source code": "原始码",
-      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.": "我们希望设置 cookie，了解你如何使用 hkbus.skpracta.info 来帮助我们改进。 ",
+      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.":
+        "我们希望设置 cookie，了解你如何使用 hkbus.skpracta.info 来帮助我们改进。 ",
       Accept: "好的",
       Reject: "不要",
       Collections: "收藏",
@@ -408,9 +412,9 @@ const resources = {
       "Check in": "心情报到",
       "Emotion Chart": "心电图",
       "How happy were you in the past 24 hours?":
-      "在过去 24 小时，你的开心指数﹖ ",
+        "在过去 24 小时，你的开心指数﹖ ",
       "What environment made you feel most profound in the past 24 hours?":
-      "在过去 24 小时，令你感受最深的环境﹖ ",
+        "在过去 24 小时，令你感受最深的环境﹖ ",
       Work: "工作",
       Gathering: "聚会",
       Exercise: "运动",
@@ -418,7 +422,7 @@ const resources = {
       Dining: "用餐",
       Rest: "休息",
       "What are you most grateful for in the past 24 hours?":
-      "在过去 24 小时，你最感恩的对象是﹖ ",
+        "在过去 24 小时，你最感恩的对象是﹖ ",
       Friend: "朋友",
       Partner: "伴侣",
       Family: "家人",
@@ -429,7 +433,7 @@ const resources = {
       "In the past 4 weeks, ...": "过去 4 星期，⋯⋯",
       "How happy were you?": "你有多快乐？ ",
       "What environment made you feel most profound?":
-      "令你感受最深的环境是哪里？ ",
+        "令你感受最深的环境是哪里？ ",
       "What are you most grateful for?": "你最感恩的对象是？ ",
       "There are also ": "还有 ",
       " things worth being grateful": " 件事值得感恩",
@@ -439,14 +443,15 @@ const resources = {
       "The place most profound you is ": "令你感受最深的环境是",
       "And, what makes you most grateful is ": "最令你感恩的是",
       Review: "回顾",
-    }
+    },
   },
-    jp: {
+  jp: {
     translation: {
       "bad-weather-text":
-      "悪天候により公共交通機関の運行状況や時刻表に影響が出る可能性があります。以下の情報は最新の状況を反映していない場合があります。",
+        "悪天候により公共交通機関の運行状況や時刻表に影響が出る可能性があります。以下の情報は最新の状況を反映していない場合があります。",
       "bad-weather-link": "https://www.td.gov.hk/tc/special_news/spnews.htm",
-      "db-renew-text": "路線情報が変更されました。こちらをクリックして更新してください。",
+      "db-renew-text":
+        "路線情報が変更されました。こちらをクリックして更新してください。",
       kmb: "九龍バス",
       ctb: "シティバス",
       nlb: "ランタオバス",
@@ -457,19 +462,20 @@ const resources = {
       fortuneferry: "フォーチュンフェリー",
       Dashboard: "ダッシュボード",
       "home-page-description":
-      "広告なしのモバイルアプリで、バスの路線、停留所、到着予定時刻を確認できます。九龍バス（KMB）、龍汕バス、シティバス、新ランタオバス、ミニバスの路線に対応しています。バス到着予測アプリ",
+        "広告なしのモバイルアプリで、バスの路線、停留所、到着予定時刻を確認できます。九龍バス（KMB）、龍汕バス、シティバス、新ランタオバス、ミニバスの路線に対応しています。バス到着予測アプリ",
       "route-board-page-description":
-      "香港島、九龍、シティバス、新ランタオバス、ミニバス路線を含む1800以上のバス路線と8800以上の停留所を、すっきりとした検索インターフェースで簡単に検索できます。路線は香港島、九龍、新界、ランタオ島を網羅しています - バス到着予測アプリ",
+        "香港島、九龍、シティバス、新ランタオバス、ミニバス路線を含む1800以上のバス路線と8800以上の停留所を、すっきりとした検索インターフェースで簡単に検索できます。路線は香港島、九龍、新界、ランタオ島を網羅しています - バス到着予測アプリ",
       "setting-page-description":
-      "バス路線データのリセット、利用履歴の削除、ソースコードの閲覧、Telegramグループへの参加 - バス到着予測アプリ",
+        "バス路線データのリセット、利用履歴の削除、ソースコードの閲覧、Telegramグループへの参加 - バス到着予測アプリ",
       "route-search-page-description":
-      "KMB、ロングウィン、シティバス、新ランタオバス、ミニバス路線を組み合わせ、無理のない距離で、目的地までのバス路線を検索できます - バス到着予測アプリ",
+        "KMB、ロングウィン、シティバス、新ランタオバス、ミニバス路線を組み合わせ、無理のない距離で、目的地までのバス路線を検索できます - バス到着予測アプリ",
       "Route Search header": "目的地までのバス路線検索",
       "Route Search description": "出発地から目的地までの経路を検索します。",
       "Route Search constraint": "条件は以下のとおりです:",
       "Route Search caption 1": "乗り換えは最大1回まで",
       "Route Search caption 2": "出発地、目的地、駅間の最大徒歩距離：500m",
-      "Route Search caption 3": "検索結果の過剰表示を防ぐため、アプリはルートの最初の停留所から出発する電車があるかどうかも確認します",
+      "Route Search caption 3":
+        "検索結果の過剰表示を防ぐため、アプリはルートの最初の停留所から出発する電車があるかどうかも確認します",
       recent: "最近の検索",
       all: "すべて",
       bus: "バス",
@@ -486,9 +492,11 @@ const resources = {
       "route-search-no-result": "検索結果なし",
       "suggest-update-database": "ルートデータベースを更新してみてください",
       "no-recent-search": "履歴がありません",
-      "tap-here-to-search-all-routes":"<TapHereLink>ここをクリック</TapHereLink>してすべてのルートを検索してください",
+      "tap-here-to-search-all-routes":
+        "<TapHereLink>ここをクリック</TapHereLink>してすべてのルートを検索してください",
       "Source code": "オリジナルコード",
-      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.": "hkbus.skpracta.info の利用状況を測定することで、サイトの改善に役立てるため、クッキーを設定させてください。",
+      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.":
+        "hkbus.skpracta.info の利用状況を測定することで、サイトの改善に役立てるため、クッキーを設定させてください。",
       Accept: "OK",
       Reject: "いいえ",
       Collections: "コレクション",
@@ -519,9 +527,9 @@ const resources = {
       "Check in": "気分ハートチェック",
       "Emotion Chart": "心電図",
       "How happy were you in the past 24 hours?":
-      "過去24時間で、最も深く感じた環境は？",
+        "過去24時間で、最も深く感じた環境は？",
       "What environment made you feel most profound in the past 24 hours?":
-      "過去24時間で、最も深く感じた環境は？",
+        "過去24時間で、最も深く感じた環境は？",
       Work: "仕事",
       Gathering: "集まり",
       Exercise: "運動",
@@ -529,29 +537,33 @@ const resources = {
       Dining: "食事",
       Rest: "休息",
       "What are you most grateful for in the past 24 hours?":
-      "過去24時間で、最も感謝している人は？",
+        "過去24時間で、最も感謝している人は？",
       Friend: "友達",
       Partner: "パートナー",
       Family: "家族",
       Fellow: "仲間",
       Self: "自分",
       Stranger: "見知らぬ人",
-      "Already checked in, let's come back later": "すでにチェックインしました。後でまた来ましょう",
+      "Already checked in, let's come back later":
+        "すでにチェックインしました。後でまた来ましょう",
       "In the past 4 weeks, ...": "過去 4 週間で、...",
       "How happy were you?": "どのくらい幸せでしたか?",
       "What environment made you feel most profound?":
-      "あなたを最も深く感じさせた環境は何ですか? ",
-      "What are you most grateful for?": "あなたが最も感謝していることは何ですか? ",
+        "あなたを最も深く感じさせた環境は何ですか? ",
+      "What are you most grateful for?":
+        "あなたが最も感謝していることは何ですか? ",
       "There are also ": "もあります ",
       " things worth being grateful": " 感謝に値するもの",
-      "How many things are there to be grateful?": "どれだけのものが存在するのか感謝しています? ",
+      "How many things are there to be grateful?":
+        "どれだけのものが存在するのか感謝しています? ",
       "I have recorded your mood ": "最近 ",
       " recently": " あなたの気分を記録しました",
       "The place most profound you is ": "あなたにとって最も深い場所",
-      "And, what makes you most grateful is ": "そして、あなたが最も感謝していることは次のとおりです。",
+      "And, what makes you most grateful is ":
+        "そして、あなたが最も感謝していることは次のとおりです。",
       Review: "振り返って",
-    }
-    }
+    },
+  },
 };
 
 export default resources;

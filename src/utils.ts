@@ -189,7 +189,10 @@ export const setSeoHeader = ({
     ?.setAttribute("content", title);
   document
     .querySelector('meta[property="og:url"]')
-    ?.setAttribute("content", `https://hkbus.skpracta.info${window.location.pathname}`);
+    ?.setAttribute(
+      "content",
+      `https://hkbus.skpracta.info${window.location.pathname}`
+    );
   document
     .querySelector('meta[property="og:description"]')
     ?.setAttribute("content", description);

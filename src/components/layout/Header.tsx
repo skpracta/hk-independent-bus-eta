@@ -58,7 +58,9 @@ const Header = () => {
 
   const handleLanguageChange = (lang: "zh" | "en") => {
     vibrate(vibrateDuration);
-    navigate(location.pathname.replace("/" + language , "/" + lang), {      replace: true,    });
+    navigate(location.pathname.replace("/" + language, "/" + lang), {
+      replace: true,
+    });
     changeLanguage(lang);
   };
 
@@ -240,7 +242,11 @@ const Header = () => {
         )}
         <Button
           sx={languageSx}
-          onClick={() => handleLanguageChange(language === "zh" ? "en" : language === "en" ? "zh" : "en")}
+          onClick={() =>
+            handleLanguageChange(
+              language === "zh" ? "en" : language === "en" ? "zh" : "en"
+            )
+          }
           id="lang-selector"
           variant="text"
           disableElevation
