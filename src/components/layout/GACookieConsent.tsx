@@ -34,7 +34,7 @@ const GACookieConsent = () => {
     <Box sx={rootSx}>
       <Typography variant="subtitle2" sx={statementSx}>
         {t(
-          "We'd like to set analytics cookies that help us improve hkbus.app by measuring how you use it."
+          "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it."
         )}
       </Typography>
       <Box sx={btnContainerSx}>

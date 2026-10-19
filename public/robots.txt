@@ -1,4 +1,4 @@
-Sitemap: https://hkbus.app/sitemap.xml
+Sitemap: https://hkbus.skpracta.info/sitemap.xml
 
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *

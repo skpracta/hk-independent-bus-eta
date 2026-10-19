@@ -10,7 +10,7 @@
     "render": "node scripts/pre-rendering.js",
     "deploy": "yarn build && node scripts/inject-app-rating.js && gh-pages -d build -t -f -a",
     "full-deploy": "yarn production-build && gh-pages -d build -t -f -a",
-    "alpha-deploy": "yarn build && node scripts/inject-app-rating.js && echo 'alpha.hkbus.app' > build/CNAME && gh-pages -d build --remote alpha -t -f -a",
+    "alpha-deploy": "yarn build && node scripts/inject-app-rating.js && echo 'alpha.hkbus.skpracta.info' > build/CNAME && gh-pages -d build --remote alpha -t -f -a",
     "alpha-full-deploy": "yarn production-build && gh-pages -d build --remote alpha -t -f -a",
     "docker": "cd docker && docker-compose up -d --build",
     "docker:build": "docker build . --pull --build-arg $(sed 's:#.*$::g' docker/.env | sed '/^\\s*$/d' | sed ':a;N;$!ba;s/\\n/ --build-arg /g')",
@@ -114,7 +114,7 @@
     "not dead",
     "not op_mini all"
   ],
-  "homepage": "https://hkbus.app/",
+  "homepage": "https://hkbus.skpracta.info/",
   "license": "GPL-3.0-only",
   "type": "module"
 }

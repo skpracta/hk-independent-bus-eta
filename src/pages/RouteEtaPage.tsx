@@ -181,7 +181,8 @@ const RouteEta = () => {
             .map((stopId) => stopList[stopId].name.zh)
             .join("、")}。`
         );
-      } else {
+      } 
+      else {
         return (
           `Route ${route} ` +
           `is from ${toProperCase(orig.en)} to ${toProperCase(dest.en)}` +

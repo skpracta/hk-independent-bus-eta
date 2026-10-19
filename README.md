@@ -1,7 +1,7 @@
 # 香港 - 獨立巴士預報 HK Bus ETA
 
 [![React](https://badges.aleen42.com/src/react.svg)](http://reactjs.org/) 
-[![Test](https://github.com/hkbus/hk-independent-bus-eta/actions/workflows/node.js.yml/badge.svg)](https://hkbus.app)
+[![Test](https://github.com/hkbus/hk-independent-bus-eta/actions/workflows/node.js.yml/badge.svg)](https://hkbus.skpracta.info)
 
 
 無廣告的巴士預報站整合了香港巴士（九巴、龍運、城巴、嶼巴、港鐵巴士）、綠色小巴、輕鐵及港鐵的到站預報，介面清晣直接，力求讓用戶快速獲得所需資訊。

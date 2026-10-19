@@ -58,9 +58,7 @@ const Header = () => {
 
   const handleLanguageChange = (lang: "zh" | "en") => {
     vibrate(vibrateDuration);
-    navigate(location.pathname.replace("/" + language, "/" + lang), {
-      replace: true,
-    });
+    navigate(location.pathname.replace("/" + language , "/" + lang), {      replace: true,    });
     changeLanguage(lang);
   };
 
@@ -242,14 +240,14 @@ const Header = () => {
         )}
         <Button
           sx={languageSx}
-          onClick={() => handleLanguageChange(language === "zh" ? "en" : "zh")}
+          onClick={() => handleLanguageChange(language === "zh" ? "en" : language === "en" ? "zh" : "en")}
           id="lang-selector"
           variant="text"
           disableElevation
           disableRipple
           aria-label="Language button"
         >
-          {language !== "zh" ? "繁" : "En"}
+          {language === "zh" ? "En" : language === "en" ? "繁" : "En"}
         </Button>
         <IconButton
           onClick={() => {

@@ -108,7 +108,7 @@ const DataExport = () => {
             startIcon={<ContentCopyIcon />}
             onClick={() => {
               if (navigator.share) {
-                navigator.share({ title: "Export hkbus.app", url: exportUrl });
+                navigator.share({ title: "Export hkbus.skpracta.info", url: exportUrl });
               } else {
                 navigator.clipboard?.writeText(exportUrl).then(() => {
                   setIsCopied(true);

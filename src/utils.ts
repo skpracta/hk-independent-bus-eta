@@ -147,7 +147,7 @@ export const setSeoHeader = ({
     .querySelector('link[rel="canonical"]')
     ?.setAttribute(
       "href",
-      `https://hkbus.app${window.location.pathname.replace(/\(/g, "%28").replace(/\)/g, "%29")}`
+      `https://hkbus.skpracta.info${window.location.pathname.replace(/\(/g, "%28").replace(/\)/g, "%29")}`
     );
   // language related meta tag
   document
@@ -157,7 +157,7 @@ export const setSeoHeader = ({
     .querySelector('link[rel="alternate"][hreflang="en"]')
     ?.setAttribute(
       "href",
-      "https://hkbus.app" +
+      "https://hkbus.skpracta.info" +
         window.location.pathname
           .replace(/\(/g, "%28")
           .replace(/\)/g, "%29")
@@ -167,7 +167,7 @@ export const setSeoHeader = ({
     .querySelector('link[rel="alternate"][hreflang="zh-Hant"]')
     ?.setAttribute(
       "href",
-      "https://hkbus.app" +
+      "https://hkbus.skpracta.info" +
         window.location.pathname
           .replace(/\(/g, "%28")
           .replace(/\)/g, "%29")
@@ -177,7 +177,7 @@ export const setSeoHeader = ({
     .querySelector('link[rel="alternate"][hreflang="x-default"]')
     ?.setAttribute(
       "href",
-      "https://hkbus.app" +
+      "https://hkbus.skpracta.info" +
         window.location.pathname
           .replace(/\(/g, "%28")
           .replace(/\)/g, "%29")
@@ -189,7 +189,7 @@ export const setSeoHeader = ({
     ?.setAttribute("content", title);
   document
     .querySelector('meta[property="og:url"]')
-    ?.setAttribute("content", `https://hkbus.app${window.location.pathname}`);
+    ?.setAttribute("content", `https://hkbus.skpracta.info${window.location.pathname}`);
   document
     .querySelector('meta[property="og:description"]')
     ?.setAttribute("content", description);
@@ -218,7 +218,7 @@ export const setSeoRouteFeature = ({
   const jsonLd = document.querySelector("#route-jsonld");
   if (jsonLd) {
     const l = lang === "en" ? "en" : "zh";
-    const routeUrl = `https://hkbus.app${window.location.pathname
+    const routeUrl = `https://hkbus.skpracta.info${window.location.pathname
       .replace(/\(/g, "%28")
       .replace(/\)/g, "%29")}`;
     const breadcrumb = {
@@ -228,13 +228,13 @@ export const setSeoRouteFeature = ({
           "@type": "ListItem",
           position: 1,
           name: lang === "en" ? "Home" : "主頁",
-          item: `https://hkbus.app/${l}`,
+          item: `https://hkbus.skpracta.info/${l}`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: lang === "en" ? "Routes" : "路線",
-          item: `https://hkbus.app/${l}/board`,
+          item: `https://hkbus.skpracta.info/${l}/board`,
         },
         {
           "@type": "ListItem",
@@ -400,7 +400,7 @@ export const setSeoRouteFeature = ({
           ? `Route ${route.route}: ${route.orig.en} → ${route.dest.en}`
           : `${route.route} 路綫：${route.orig.zh} → ${route.dest.zh}`,
       inLanguage: lang === "en" ? "en" : "zh-Hant",
-      isPartOf: { "@id": "https://hkbus.app/#website" },
+      isPartOf: { "@id": "https://hkbus.skpracta.info/#website" },
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["#route-eta-header h1", "#route-eta-header h2"],

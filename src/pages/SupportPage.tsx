@@ -41,7 +41,7 @@ const Support = () => {
         </ListItemButton>
         <ListItemButton
           component="a"
-          href="mailto:info@hkbus.app"
+          href="mailto:hkbus.info@skpracta.info"
           target="_blank"
           rel="noreferrer"
         >
@@ -50,7 +50,7 @@ const Support = () => {
               <EmailIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={t("Email")} secondary={"info@hkbus.app"} />
+          <ListItemText primary={t("Email")} secondary={"hkbus.info@skpracta.info"} />
         </ListItemButton>
         <ListItemButton
           component="a"
@@ -76,7 +76,7 @@ const Support = () => {
               <TwitterIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={t("Twitter")} secondary={"@hkbus.app"} />
+          <ListItemText primary={t("Twitter")} secondary={"@hkbus.skpracta.info"} />
         </ListItemButton>
       </List>
       <Typography variant="body1">{t("歡迎意見及技術交流")}</Typography>
