@@ -11,3 +11,4 @@ docker-compose*.yml
 *.log
 build/
 dist/
+docker/.env

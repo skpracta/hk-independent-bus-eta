@@ -9,7 +9,7 @@ const GACookieConsent = () => {
   const { analytics, toggleAnalytics } = useContext(AppContext);
   const [show, setShow] = useState<boolean>(
     !analytics &&
-      localStorage.getItem("consent") === undefined &&
+      localStorage.getItem("consent") === null &&
       !iOSRNWebView()
   );
 

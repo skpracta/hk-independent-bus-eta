@@ -1,11 +1,16 @@
 import { Box, SxProps, Theme, Typography } from "@mui/material";
-import { useContext, useMemo } from "react";
+import { lazy, Suspense, useContext, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import Plotly from "plotly.js-basic-dist";
-import createPlotlyComponent from "react-plotly.js/factory";
 import EmotionContext, { CheckInOptions } from "../../context/EmotionContext";
 
-const Plot = createPlotlyComponent(Plotly);
+const Plot = lazy(async () => {
+  const [{ default: Plotly }, { default: createPlotlyComponent }] =
+    await Promise.all([
+      import("plotly.js-basic-dist"),
+      import("react-plotly.js/factory"),
+    ]);
+  return { default: createPlotlyComponent(Plotly) };
+});
 
 const EmotionChart = () => {
   const { t } = useTranslation();
@@ -44,7 +49,8 @@ const EmotionChart = () => {
   return (
     <Box sx={rootSx}>
       <Typography variant="body1">{t("In the past 4 weeks, ...")}</Typography>
-      <Plot
+      <Suspense fallback={<Typography>{t("Loading...")}</Typography>}>
+        <Plot
         data={[
           {
             values: countData.happiness,
@@ -76,8 +82,8 @@ const EmotionChart = () => {
           ],
         }}
         config={{ displayModeBar: false }}
-      />
-      <Plot
+        />
+        <Plot
         data={[
           {
             values: countData.moodScene,
@@ -111,8 +117,8 @@ const EmotionChart = () => {
           ],
         }}
         config={{ displayModeBar: false }}
-      />
-      <Plot
+        />
+        <Plot
         data={[
           {
             values: countData.gratitudeObj,
@@ -148,7 +154,8 @@ const EmotionChart = () => {
           ],
         }}
         config={{ displayModeBar: false }}
-      />
+        />
+      </Suspense>
       <Typography variant="h6">
         {t("There are also ")}
         {countData.gratitudeCnt}

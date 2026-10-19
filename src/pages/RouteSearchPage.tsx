@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useContext, useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -13,13 +13,16 @@ import { ChangeCircle as ChangeCircleIcon } from "@mui/icons-material";
 import AppContext from "../context/AppContext";
 import { useTranslation } from "react-i18next";
 import AddressInput, { Address } from "../components/route-search/AddressInput";
-import SearchMap from "../components/map/maplibre/SearchMap";
 import { fetchEtas, Eta, Company, Location } from "hk-bus-eta";
 import { setSeoHeader, getDistance, vibrate } from "../utils";
 import { LinearProgress } from "../components/Progress";
 import useLanguage from "../hooks/useTranslation";
 import SearchResultList from "../components/route-search/SearchResultList";
 import DbContext from "../context/DbContext";
+
+const SearchMap = lazy(
+  () => import("../components/map/maplibre/SearchMap")
+);
 
 export interface SearchRoute {
   routeId: string;
@@ -76,7 +79,7 @@ const RouteSearch = () => {
         .filter((v, i, s) => s.indexOf(v) === i);
 
       // check currently available routes by fetching ETA
-      Promise.all(
+      Promise.allSettled(
         uniqueRoutes.map((routeIdSeq): Promise<Eta[]> => {
           const [routeId, seq] = routeIdSeq.split("/");
           return !navigator.onLine
@@ -92,6 +95,11 @@ const RouteSearch = () => {
               }).then((p) => p.filter((e) => e.eta));
         })
       )
+        .then((results) =>
+          results.map((result) =>
+            result.status === "fulfilled" ? result.value : []
+          )
+        )
         .then((etas) =>
           // filter out non available route
           uniqueRoutes.filter(
@@ -124,28 +132,28 @@ const RouteSearch = () => {
                 // refine nearest start if available
                 .map((routes) => {
                   let start = startLocation;
-                  return routes.map((route) => {
-                    const stops = Object.values(
-                      routeList[route.routeId].stops
-                    ).sort((a, b) => b.length - a.length)[0];
-                    let bestOn = -1;
-                    let dist = 100000;
-                    for (let i = route.on; i < route.off; ++i) {
-                      let _dist = getDistance(
-                        stopList[stops[i]].location,
-                        start
-                      );
-                      if (_dist < dist) {
-                        bestOn = i;
-                        dist = _dist;
+                  return routes
+                    .map((route) => {
+                      const stops = Object.values(
+                        routeList[route.routeId].stops
+                      ).sort((a, b) => b.length - a.length)[0];
+                      let bestOn = -1;
+                      let dist = 100000;
+                      for (let i = route.on; i < route.off; ++i) {
+                        const distance = getDistance(
+                          stopList[stops[i]].location,
+                          start
+                        );
+                        if (distance < dist) {
+                          bestOn = i;
+                          dist = distance;
+                        }
                       }
-                    }
-                    start = stopList[stops[route.off]].location;
-                    return {
-                      ...route,
-                      on: bestOn,
-                    };
-                  });
+                      if (bestOn === -1) return null;
+                      start = stopList[stops[route.off]].location;
+                      return { ...route, on: bestOn };
+                    })
+                    .filter((route): route is SearchRoute => route !== null);
                 })
                 // sort route by number of stops
                 .map((routes): [SearchRoute[], number] => [
@@ -302,15 +310,17 @@ const RouteSearch = () => {
   return (
     <Paper sx={rootSx} square elevation={0}>
       {!energyMode ? (
-        <SearchMap
-          start={
-            locations.start ? locations.start.location : geolocation.current
-          }
-          end={locations.end ? locations.end.location : null}
-          routes={result[resultIdx.resultIdx]}
-          stopIdx={resultIdx.stopIdx}
-          onMarkerClick={handleMarkerClick}
-        />
+        <Suspense fallback={<Box sx={mapFallbackSx} />}>
+          <SearchMap
+            start={
+              locations.start ? locations.start.location : geolocation.current
+            }
+            end={locations.end ? locations.end.location : null}
+            routes={result[resultIdx.resultIdx]}
+            stopIdx={resultIdx.stopIdx}
+            onMarkerClick={handleMarkerClick}
+          />
+        </Suspense>
       ) : null}
       <Box sx={inputContainerSx}>
         <Box sx={inputBoxSx}>
@@ -392,6 +402,11 @@ const DEFAULT_STATE: RouteSearchState = {
     resultIdx: 0,
     stopIdx: [0, 0],
   },
+};
+
+const mapFallbackSx: SxProps<Theme> = {
+  minHeight: 280,
+  width: "100%",
 };
 
 const rootSx: SxProps<Theme> = {

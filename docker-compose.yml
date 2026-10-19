@@ -1,5 +1,6 @@
 services:
   production:
+    image: ${IMAGE_NAME:-hk-independent-bus-eta}:latest
     build:
       context: .
       dockerfile: docker/Dockerfile

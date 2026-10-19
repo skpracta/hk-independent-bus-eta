@@ -201,9 +201,29 @@ const isColorMode = (input: unknown): input is ColorMode => {
   return input === "dark" || input === "light" || input === "system";
 };
 
+const readJson = <T,>(key: string, fallback: T): T => {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : (JSON.parse(value) as T);
+  } catch {
+    return fallback;
+  }
+};
+
+const readBoolean = (key: string, fallback: boolean): boolean => {
+  const value = readJson<unknown>(key, fallback);
+  return typeof value === "boolean" ? value : fallback;
+};
+
+const readNumber = (key: string, fallback: number): number => {
+  const value = readJson<unknown>(key, fallback);
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+};
+
+
 export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const _geolocation = useMemo<GeoLocation>(() => {
-    const v = JSON.parse(localStorage.getItem("geolocation") ?? "null");
+    const v = readJson<unknown>("geolocation", null);
     return isGeoLocation(v) ? v : DEFAULT_GEOLOCATION;
   }, []);
 
@@ -219,9 +239,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     const busSortOrder: unknown = localStorage.getItem("busSortOrder");
     const numPadOrder: unknown = localStorage.getItem("numPadOrder");
     const etaFormat: unknown = localStorage.getItem("etaFormat");
-    const routeSearchHistory: unknown = JSON.parse(
-      localStorage.getItem("routeSearchHistory") ?? "null"
-    );
+    const routeSearchHistory: unknown = readJson("routeSearchHistory", null);
 
     return {
       searchRoute: searchRoute,
@@ -231,9 +249,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       compassPermission: isCompassPermission(compassPermission)
         ? compassPermission
         : "default",
-      isRouteFilter: !!JSON.parse(
-        localStorage.getItem("isRouteFilter") ?? "false"
-      ),
+      isRouteFilter: readBoolean("isRouteFilter", false),
       busSortOrder: isBusSortOrder(busSortOrder) ? busSortOrder : "KMB first",
       numPadOrder: isNumPadOrder(numPadOrder) ? numPadOrder : "123456789c0b",
       etaFormat: isEtaFormat(etaFormat) ? etaFormat : "diff",
@@ -244,31 +260,19 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       _colorMode: isColorMode(devicePreferColorScheme)
         ? devicePreferColorScheme
         : "dark",
-      energyMode: !!JSON.parse(localStorage.getItem("energyMode") ?? "false"),
-      platformMode: !!JSON.parse(
-        localStorage.getItem("platformMode") ?? "false"
-      ),
-      vibrateDuration: JSON.parse(
-        localStorage.getItem("vibrateDuration") ?? "1"
-      ),
-      isRecentSearchShown: !!JSON.parse(
-        localStorage.getItem("isRecentSearchShown") ?? "true"
-      ),
+      energyMode: readBoolean("energyMode", false),
+      platformMode: readBoolean("platformMode", false),
+      vibrateDuration: readNumber("vibrateDuration", 1),
+      isRecentSearchShown: readBoolean("isRecentSearchShown", true),
       isVisible: true,
       analytics:
         iOSRNWebView() && !iOSTracking()
           ? false
-          : JSON.parse(localStorage.getItem("analytics") || "true"),
-      refreshInterval: JSON.parse(
-        localStorage.getItem("refreshInterval") ?? "30000"
-      ),
-      annotateScheduled: JSON.parse(
-        localStorage.getItem("annotateScheduled") ?? "false"
-      ),
-      fontSize: JSON.parse(localStorage.getItem("fontSize") ?? "14"),
-      searchRange: JSON.parse(
-        localStorage.getItem("searchRange") ?? `${DEFAULT_SEARCH_RANGE}`
-      ),
+          : readBoolean("analytics", true),
+      refreshInterval: readNumber("refreshInterval", 30000),
+      annotateScheduled: readBoolean("annotateScheduled", false),
+      fontSize: readNumber("fontSize", 14),
+      searchRange: readNumber("searchRange", DEFAULT_SEARCH_RANGE),
       isSearching: false,
     };
   };

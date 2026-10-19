@@ -89,7 +89,7 @@ const Footer = () => {
         />
       </BottomNavigation>
     ),
-    [location.pathname, language, t, false, handleClick]
+    [location.pathname, language, t, handleClick]
   );
 };
 

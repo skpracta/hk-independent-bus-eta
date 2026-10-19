@@ -1,3 +1,4 @@
+/* eslint-env node */
 import express from "express";
 import fs from "fs";
 import { resolve } from "path";
@@ -96,8 +97,6 @@ function ensureDirExists(dir) {
  * @returns {string|number}
  */
 async function getHTMLfromPuppeteerPage(page, pageUrl, idx) {
-  // eslint-disable-next-line no-unused-vars
-  const url = new URL(pageUrl);
   try {
     if (!pageUrl.includes("/route/")) {
       if (idx === 0) {
