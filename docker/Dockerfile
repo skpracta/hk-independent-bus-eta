@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.7
 
 ARG NODE_IMAGE=node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392
-ARG NGINX_IMAGE=nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+ARG NGINX_IMAGE=nginx:alpine
 
 FROM ${NODE_IMAGE} AS build
 
@@ -31,6 +31,7 @@ RUN yarn build
 
 FROM ${NGINX_IMAGE} AS runtime
 
+RUN apk upgrade --no-cache
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/build /usr/share/nginx/html
 
