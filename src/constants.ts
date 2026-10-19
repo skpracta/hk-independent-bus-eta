@@ -41,8 +41,24 @@ export const TRANSPORT_ORDER = {
   "CTB first": ["ctb", "kmb", "lrtfeeder", "nlb", "gmb", "lightRail", "mtr"],
   "NLB first": ["nlb", "kmb", "ctb", "gmb", "mtr", "lightRail", "lrtfeeder"],
   "MTR first": ["mtr", "kmb", "ctb", "lrtfeeder", "nlb", "gmb", "lightRail"],
-  "MTR East first": ["mtr", "kmb", "ctb", "nlb", "lrtfeeder", "gmb", "lightRail"],
-  "MTR West first": ["mtr", "lightRail", "lrtfeeder", "kmb", "ctb", "nlb", "gmb"],
+  "MTR East first": [
+    "mtr",
+    "kmb",
+    "ctb",
+    "nlb",
+    "lrtfeeder",
+    "gmb",
+    "lightRail",
+  ],
+  "MTR West first": [
+    "mtr",
+    "lightRail",
+    "lrtfeeder",
+    "kmb",
+    "ctb",
+    "nlb",
+    "gmb",
+  ],
 };
 
 export const DEFAULT_DAY_SCHEDULE: DaySchedule = {

@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import {
- // Badge,
+  // Badge,
   BottomNavigation,
   BottomNavigationAction,
   SxProps,
@@ -24,7 +24,7 @@ const Footer = () => {
   const language = useLanguage();
   const location = useLocation();
   const { vibrateDuration } = useContext(AppContext);
-//  const { isRemind } = useContext(EmotionContext);
+  //  const { isRemind } = useContext(EmotionContext);
 
   const navigate = useNavigate();
   const handleClick = useCallback(

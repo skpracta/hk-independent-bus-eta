@@ -1,4 +1,12 @@
-import { lazy, Suspense, useCallback, useContext, useEffect, useRef, useState } from "react";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   Box,
   Button,
@@ -20,9 +28,7 @@ import useLanguage from "../hooks/useTranslation";
 import SearchResultList from "../components/route-search/SearchResultList";
 import DbContext from "../context/DbContext";
 
-const SearchMap = lazy(
-  () => import("../components/map/maplibre/SearchMap")
-);
+const SearchMap = lazy(() => import("../components/map/maplibre/SearchMap"));
 
 export interface SearchRoute {
   routeId: string;

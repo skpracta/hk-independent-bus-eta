@@ -18,14 +18,14 @@ import {
   GetApp as GetAppIcon,
   Build as BuildIcon,
   LocationOn as LocationOnIcon,
-  LocationOff as LocationOffIcon,  
+  LocationOff as LocationOffIcon,
   DataUsage as DataUsageIcon,
   GitHub as GitHubIcon,
   Share as ShareIcon,
   Telegram as TelegramIcon,
   Fingerprint as FingerprintIcon,
   Gavel as GavelIcon,
-  InsertEmoticon as InsertEmoticonIcon,  
+  InsertEmoticon as InsertEmoticonIcon,
   Info as InfoIcon,
   SendToMobile as SendToMobileIcon,
   HelpOutline as HelpIcon,
@@ -59,12 +59,8 @@ const Settings = () => {
     autoRenew,
     toggleAutoDbRenew,
   } = useContext(DbContext);
-  const {
-    geoPermission,
-    updateGeoPermission,
-    vibrateDuration,    
-    openUrl,
-  } = useContext(AppContext);
+  const { geoPermission, updateGeoPermission, vibrateDuration, openUrl } =
+    useContext(AppContext);
   const { debug, toggleDebug } = useContext(ReactNativeContext);
   const [updating, setUpdating] = useState(false);
   const [showGeoPermissionDenied, setShowGeoPermissionDenied] = useState(false);
