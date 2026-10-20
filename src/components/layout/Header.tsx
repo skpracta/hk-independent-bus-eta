@@ -242,18 +242,14 @@ const Header = () => {
         )}
         <Button
           sx={languageSx}
-          onClick={() =>
-            handleLanguageChange(
-              language === "zh" ? "en" : "zh"
-            )
-          }
+          onClick={() => handleLanguageChange(language === "zh" ? "en" : "zh")}
           id="lang-selector"
           variant="text"
           disableElevation
           disableRipple
           aria-label="Language button"
         >
-          {language === "zh" ? "En" : "繁" }
+          {language === "zh" ? "En" : "繁"}
         </Button>
         <IconButton
           onClick={() => {

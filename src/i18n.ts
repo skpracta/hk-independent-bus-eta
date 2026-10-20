@@ -4,10 +4,7 @@ import resources from "./i18n/translation";
 
 const getSavedLang = (): "zh" | "en" | undefined => {
   const savedLang = localStorage.getItem("lang");
-  if (
-    "zh" === savedLang ||
-    "en" === savedLang 
-  ) {
+  if ("zh" === savedLang || "en" === savedLang) {
     return savedLang;
   }
   return undefined;

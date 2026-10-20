@@ -263,9 +263,11 @@ const resources = {
       "route-search-no-result": "沒有結果",
       "suggest-update-database": "可嘗試到設定，更新路線資料庫",
       "no-recent-search": "沒有記錄",
-      "tap-here-to-search-all-routes":"<TapHereLink>按此</TapHereLink>以搜尋「全部」路綫",
+      "tap-here-to-search-all-routes":
+        "<TapHereLink>按此</TapHereLink>以搜尋「全部」路綫",
       "Source code": "原始碼",
-      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.": "我們希望設置 cookie，了解你如何使用 hkbus.skpracta.info 來幫助我們改進。",
+      "We'd like to set analytics cookies that help us improve hkbus.skpracta.info by measuring how you use it.":
+        "我們希望設置 cookie，了解你如何使用 hkbus.skpracta.info 來幫助我們改進。",
       Accept: "好的",
       Reject: "不要",
       Collections: "收藏",
@@ -328,7 +330,7 @@ const resources = {
       "And, what makes you most grateful is ": "最令你感恩的是",
       Review: "回顧",
     },
-  }
+  },
 };
 
 export default resources;
