@@ -2,13 +2,11 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import resources from "./i18n/translation";
 
-const getSavedLang = (): "zh" | "en" | "zs" | "jp" | undefined => {
+const getSavedLang = (): "zh" | "en" | undefined => {
   const savedLang = localStorage.getItem("lang");
   if (
     "zh" === savedLang ||
-    "en" === savedLang ||
-    "zs" === savedLang ||
-    "jp" === savedLang
+    "en" === savedLang 
   ) {
     return savedLang;
   }
@@ -21,8 +19,7 @@ const DEFAULT_LANG =
 
 i18n.use(initReactI18next).init({
   resources,
-  supportedLngs: ["en", "zh", "zs", "jp"] as ["en", "zh", "zs", "jp"],
-  fallbackLng: "en",
+  supportedLngs: ["en", "zh"] as ["en", "zh"],
   lowerCaseLng: true,
   lng: DEFAULT_LANG,
   nsSeparator: false,

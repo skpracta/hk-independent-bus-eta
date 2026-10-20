@@ -12,6 +12,6 @@ export type BusSortOrder =
 
 export type EtaFormat = "exact" | "diff" | "mixed";
 
-export type Language = "zh" | "en" | "zs" | "jp";
+export type Language = "zh" | "en";
 
 export type ManageMode = "order" | "edit";

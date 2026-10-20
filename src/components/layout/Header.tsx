@@ -244,7 +244,7 @@ const Header = () => {
           sx={languageSx}
           onClick={() =>
             handleLanguageChange(
-              language === "zh" ? "en" : language === "en" ? "zh" : "en"
+              language === "zh" ? "en" : "zh"
             )
           }
           id="lang-selector"
@@ -253,7 +253,7 @@ const Header = () => {
           disableRipple
           aria-label="Language button"
         >
-          {language === "zh" ? "En" : language === "en" ? "繁" : "En"}
+          {language === "zh" ? "En" : "繁" }
         </Button>
         <IconButton
           onClick={() => {
